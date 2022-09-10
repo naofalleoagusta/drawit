@@ -1,8 +1,7 @@
 import React, { lazy, Suspense } from "react";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 
-import routes from "@/constant/routes";
-const Home = lazy(() => import("@/pages/home"));
+import routes from "constant/routes";
 
 const Router = () => {
   console.log("test");
@@ -17,7 +16,7 @@ const Router = () => {
               path={route.path}
               element={
                 <Suspense fallback={<></>}>
-                  <Home />
+                  <Component />
                 </Suspense>
               }
             />
