@@ -8,6 +8,12 @@ body,
   margin: 0;
 }
 
+@layer base {
+  html {
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
 .aligned-flex-row {
   @apply flex items-center flex-row;
 }

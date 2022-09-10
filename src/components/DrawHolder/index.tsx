@@ -1,20 +1,11 @@
-import React, { useContext } from "react";
-
-import CanvasContext from "context/CanvasProvider/CanvasContext";
-
-import { ColorType, COLORS, SizeType, SIZES } from "typings";
+import ColorPicker from "./ColorPicker";
 
 const DrawHolder = () => {
-  const { color, setColor, size, setSize } = useContext(CanvasContext);
-  const handleChangeColor = (color: ColorType) => {
-    setColor(color);
-  };
-  const handleChangeSize = (size: SizeType) => {
-    setSize(size);
-  };
-
   return (
-    <div className="aligned-flex-row gap-x-4 w-96">
+    <div className="fixed bottom-4 aligned-flex-row justify-center w-full">
+      <div className="aligned-flex-row gap-x-4 bg-white rounded-full shadow-2xl p-5">
+        <ColorPicker />
+      </div>
     </div>
   );
 };

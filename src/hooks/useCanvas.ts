@@ -1,8 +1,10 @@
-import { useCallback, useEffect, useRef, useState } from "react";
+import CanvasContext from "context/CanvasProvider/CanvasContext";
+import { useCallback, useContext, useEffect, useRef, useState } from "react";
 import { CoordinateType } from "typings";
 
 const useCanvas = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const { color, size } = useContext(CanvasContext);
   const [isPainting, setIsPainting] = useState(false);
   const [mousePosition, setMousePosition] = useState<CoordinateType>();
 
@@ -50,10 +52,10 @@ const useCanvas = () => {
     const context = canvas.getContext("2d");
     console.log(originalMousePosition, newMousePosition);
     if (context) {
-      context.strokeStyle = "red";
+      context.strokeStyle = color;
       context.lineCap = "round";
       context.lineJoin = "round";
-      context.lineWidth = 5;
+      context.lineWidth = size;
       context.beginPath();
       context.moveTo(originalMousePosition.x, originalMousePosition.y);
       context.lineTo(newMousePosition.x, newMousePosition.y);

@@ -1,5 +1,3 @@
-import React, { useCallback, useEffect, useRef, useState } from "react";
-
 import useCanvas from "hooks/useCanvas";
 
 const Canvas = () => {
